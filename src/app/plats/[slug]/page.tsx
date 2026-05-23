@@ -64,7 +64,20 @@ export default async function DishPage({
             <span className="text-cream">{dish.name}</span>
           </nav>
 
-          <span className="text-[3.5rem] block mb-3">{dish.emoji}</span>
+          {dish.image_url ? (
+            <div className="relative w-40 h-40 md:w-52 md:h-52 mx-auto mb-4 rounded-full overflow-hidden border-2 border-border">
+              <Image
+                src={`https://www.seggfaye.com/${dish.image_url}`}
+                alt={dish.name}
+                fill
+                className="object-cover"
+                sizes="208px"
+                priority
+              />
+            </div>
+          ) : (
+            <span className="text-[3.5rem] block mb-3">{dish.emoji}</span>
+          )}
           <h1 className="font-[family-name:var(--font-heading)] text-[1.8rem] md:text-[2.8rem] font-black text-cream leading-tight">
             {dish.name}
           </h1>

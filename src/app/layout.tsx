@@ -25,6 +25,9 @@ export const metadata: Metadata = {
   description:
     "Decouvrez quels produits (guedj, netetou, yeet) utiliser dans chaque plat senegalais. Guide interactif par le Guedjologue de Louma by Seggfaye.",
   metadataBase: new URL("https://guide.seggfaye.com"),
+  icons: {
+    icon: "/favicon.svg",
+  },
   openGraph: {
     siteName: "Louma Guide",
     locale: "fr_FR",
