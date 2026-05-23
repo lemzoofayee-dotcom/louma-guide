@@ -11,7 +11,7 @@ export default function DishCard({ dish }: { dish: Dish }) {
       {dish.image_url ? (
         <div className="relative aspect-[4/3] overflow-hidden">
           <Image
-            src={`https://www.seggfaye.com/${dish.image_url}`}
+            src={dish.image_url.startsWith('/') ? dish.image_url : `https://www.seggfaye.com/${dish.image_url}`}
             alt={dish.name}
             fill
             className="object-cover transition-transform duration-500 group-hover:scale-105"

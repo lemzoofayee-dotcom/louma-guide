@@ -67,7 +67,7 @@ export default async function DishPage({
           {dish.image_url ? (
             <div className="relative w-40 h-40 md:w-52 md:h-52 mx-auto mb-4 rounded-full overflow-hidden border-2 border-border">
               <Image
-                src={`https://www.seggfaye.com/${dish.image_url}`}
+                src={dish.image_url.startsWith('/') ? dish.image_url : `https://www.seggfaye.com/${dish.image_url}`}
                 alt={dish.name}
                 fill
                 className="object-cover"
