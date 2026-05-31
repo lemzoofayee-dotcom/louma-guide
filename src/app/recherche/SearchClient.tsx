@@ -13,8 +13,55 @@ function normalize(str: string): string {
     .replace(/[̀-ͯ]/g, "");
 }
 
-function matches(item: string, query: string): boolean {
-  return normalize(item).includes(normalize(query));
+const ALIASES: Record<string, string[]> = {
+  "thieboudienne": ["tiep", "tiep bou dien", "tchep", "tcheb", "ceebu jen", "ceebu jenn", "thieboudienn", "thieboudiene", "thieboudiène", "tieboudienne", "riz au poisson", "thieb"],
+  "ceebu-yapp": ["ceeb u yapp", "thieb yapp", "tiep yapp", "riz viande", "tcheb yapp"],
+  "yassa-poulet": ["yassa", "yassa ginaar", "poulet yassa"],
+  "mafe": ["mafé", "maffé", "maafe", "tigadegue", "tigadègue", "sauce arachide"],
+  "soupoukandja": ["soupou kandja", "soupe kandja", "soupou kandia", "soup kandia", "soupe gombo"],
+  "domoda": ["domada", "domodah"],
+  "caldou": ["kaldou", "caldou poisson", "kaldou jen"],
+  "thiakry": ["thiakri", "tiakri", "tiakry", "cere", "chakery", "tchakri", "degue"],
+  "fonde": ["fondé", "fonde mil", "bouillie mil"],
+  "thiere-mboum": ["tiere mboum", "thiere mbeum", "couscous mil sauce feuilles"],
+  "ndiambane-dakkar": ["diambane", "ndiambane", "diambane dakar", "ndiambane dakar"],
+  "mbakhalou-saloum": ["mbakhalou", "mbaxalou", "mbakalu", "mbakhalou saloum"],
+  "basse-sale": ["bassé salé", "basse sale", "bassi sale", "bassi salé", "couscous mil sale"],
+  "lakh": ["laax", "lax", "bouillie lakh"],
+  "ndambe": ["ndambé", "ndambe niebe", "sandwich ndambe"],
+  "sombi": ["sombie", "riz au lait senegalais"],
+  "pastels": ["pastel", "pastel poisson", "beignets farcis"],
+  "fataya": ["fataia", "chausson frit"],
+  "accara": ["akara", "akkara", "beignets niebe"],
+  "dibi": ["diby", "viande grille senegalaise", "braise"],
+  "thiou": ["tiou", "sauce thiou"],
+  "firire": ["frire", "poisson frit"],
+  "bissap-jus": ["bissap", "hibiscus", "jus bissap", "foléré"],
+  "bouye-jus": ["bouye", "baobab", "jus bouye", "jus baobab", "pain de singe"],
+  "chere": ["céré", "cere", "thiakry lait"],
+  "guedj": ["guej", "gejj", "guedji", "poisson seche", "poisson fermente"],
+  "netetou": ["netetu", "netetou", "soumbala", "dawadawa", "iru woro", "iru", "soumbara"],
+  "yeet": ["yet", "yete", "mollusque fermente"],
+  "crevettes": ["crevettes sechees", "cipakh", "cipax"],
+  "kethiakh": ["kethiakh", "kethiak", "ketiak", "poisson seche sale"],
+  "diwtir": ["diw tir", "huile rouge", "huile palme"],
+  "thiakry-produit": ["thiakry", "thiakri", "ciakri", "couscous mil"],
+  "bissap": ["bissap rouge", "hibiscus", "karkade"],
+  "niebe": ["niébé", "niebe", "haricots niebe", "black eyed peas"],
+};
+
+function getAliases(slug: string): string[] {
+  return ALIASES[slug] || [];
+}
+
+function matchesWithAliases(item: { name: string; name_wolof?: string | null; subtitle?: string | null; description: string; slug: string }, query: string): boolean {
+  const q = normalize(query);
+  if (normalize(item.name).includes(q)) return true;
+  if (item.name_wolof && normalize(item.name_wolof).includes(q)) return true;
+  if (item.subtitle && normalize(item.subtitle).includes(q)) return true;
+  if (normalize(item.description).includes(q)) return true;
+  const aliases = getAliases(item.slug);
+  return aliases.some((alias) => normalize(alias).includes(q) || q.includes(normalize(alias)));
 }
 
 export default function SearchClient({
@@ -30,22 +77,21 @@ export default function SearchClient({
 
   const filteredDishes = useMemo(() => {
     if (!query.trim()) return [];
-    return dishes.filter(
-      (d) =>
-        matches(d.name, query) ||
-        matches(d.name_wolof ?? "", query) ||
-        matches(d.subtitle ?? "", query) ||
-        matches(d.description, query)
+    return dishes.filter((d) =>
+      matchesWithAliases(
+        { name: d.name, name_wolof: d.name_wolof, subtitle: d.subtitle, description: d.description, slug: d.slug },
+        query
+      )
     );
   }, [query, dishes]);
 
   const filteredProducts = useMemo(() => {
     if (!query.trim()) return [];
-    return products.filter(
-      (p) =>
-        matches(p.name, query) ||
-        matches(p.name_local ?? "", query) ||
-        matches(p.description, query)
+    return products.filter((p) =>
+      matchesWithAliases(
+        { name: p.name, name_wolof: p.name_local, subtitle: null, description: p.description, slug: p.slug },
+        query
+      )
     );
   }, [query, products]);
 
