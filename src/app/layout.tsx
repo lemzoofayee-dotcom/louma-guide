@@ -19,11 +19,30 @@ const jakarta = Plus_Jakarta_Sans({
 
 export const metadata: Metadata = {
   title: {
-    default: "Louma Guide | Le Guedjologue vous guide",
+    default: "Louma Guide | Produits exotiques africains pour la cuisine senegalaise",
     template: "%s | Louma Guide",
   },
   description:
-    "Decouvrez quels produits (guedj, netetou, yeet) utiliser dans chaque plat senegalais. Guide interactif par le Guedjologue de Louma by Seggfaye.",
+    "Guide interactif des produits exotiques africains et produits halieutiques seches du Senegal : guedj, netetou, yeet, crevettes sechees. Decouvrez quel produit utiliser dans chaque plat senegalais. Livraison France et Europe.",
+  keywords: [
+    "produits exotiques africains",
+    "produits exotiques senegalais",
+    "produits halieutiques seches",
+    "produits halieutiques seches senegal",
+    "poisson seche senegalais",
+    "guedj",
+    "netetou",
+    "yeet",
+    "crevettes sechees",
+    "cuisine senegalaise",
+    "produits africains france",
+    "epicerie africaine en ligne",
+    "recettes senegalaises",
+    "thieboudienne",
+    "produits du terroir senegalais",
+    "fruits de mer seches",
+    "iles du saloum",
+  ],
   metadataBase: new URL("https://guide.seggfaye.com"),
   icons: {
     icon: "/favicon.svg",
@@ -32,6 +51,8 @@ export const metadata: Metadata = {
     siteName: "Louma Guide",
     locale: "fr_FR",
     type: "website",
+    title: "Louma Guide | Produits exotiques africains pour la cuisine senegalaise",
+    description: "Guide interactif des produits halieutiques seches du Senegal et produits exotiques africains. Guedj, netetou, yeet, crevettes sechees. Livraison France et Europe.",
   },
 };
 
