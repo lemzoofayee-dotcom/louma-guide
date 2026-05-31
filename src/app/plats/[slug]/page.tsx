@@ -49,8 +49,44 @@ export default async function DishPage({
   const essential = dishProducts.filter((dp) => dp.is_essential);
   const optional = dishProducts.filter((dp) => !dp.is_essential);
 
+  const allIngredients = [
+    ...dishProducts.map((dp) => dp.product.name + (dp.quantity ? ` (${dp.quantity})` : "")),
+    ...(dish.other_ingredients || []),
+  ];
+
+  const recipeJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Recipe",
+    name: dish.name,
+    description: dish.description,
+    image: dish.image_url
+      ? dish.image_url.startsWith("/")
+        ? `https://guide.seggfaye.com${dish.image_url}`
+        : `https://www.seggfaye.com/${dish.image_url}`
+      : undefined,
+    author: { "@type": "Person", name: "Le Guedjologue" },
+    publisher: { "@type": "Organization", name: "Louma by Seggfaye", url: "https://www.seggfaye.com" },
+    prepTime: dish.prep_time_minutes ? `PT${dish.prep_time_minutes}M` : undefined,
+    cookTime: dish.cook_time_minutes ? `PT${dish.cook_time_minutes}M` : undefined,
+    totalTime: dish.prep_time_minutes && dish.cook_time_minutes ? `PT${dish.prep_time_minutes + dish.cook_time_minutes}M` : undefined,
+    recipeYield: dish.servings || undefined,
+    recipeCategory: dish.category || "Plat principal",
+    recipeCuisine: "Senegalaise",
+    recipeIngredient: allIngredients.length > 0 ? allIngredients : undefined,
+    recipeInstructions: dish.steps?.map((s: { step: number; title: string; text: string }) => ({
+      "@type": "HowToStep",
+      position: s.step,
+      name: s.title,
+      text: s.text,
+    })),
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(recipeJsonLd) }}
+      />
       <Navbar />
       <main className="flex-1">
         {/* Hero */}
@@ -205,6 +241,32 @@ export default async function DishPage({
                   ))}
                 </ul>
               </div>
+            </section>
+          )}
+
+          {/* CTA Commander les ingredients */}
+          {dishProducts.length > 0 && (
+            <section className="mb-10">
+              <a
+                href="https://www.seggfaye.com/#produits"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block rounded-[var(--radius-lg)] border border-[rgba(201,168,76,0.3)] bg-[linear-gradient(135deg,rgba(201,168,76,0.08),rgba(201,168,76,0.02))] p-5 md:p-6 text-center transition-all hover:border-[rgba(201,168,76,0.5)] hover:shadow-[0_8px_32px_rgba(201,168,76,0.1)]"
+              >
+                <p className="font-[family-name:var(--font-heading)] text-[1.1rem] md:text-[1.3rem] font-bold text-gold mb-2">
+                  Envie de preparer ce {dish.name} ?
+                </p>
+                <p className="text-[0.8rem] text-cream/70 mb-4">
+                  Retrouvez tous les produits authentiques du Saloum sur notre boutique
+                </p>
+                <span className="inline-flex items-center gap-2 bg-green text-white font-bold text-[0.8rem] px-5 py-2.5 rounded-full hover:brightness-110 transition">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                  </svg>
+                  Commander sur seggfaye.com
+                </span>
+              </a>
             </section>
           )}
 
