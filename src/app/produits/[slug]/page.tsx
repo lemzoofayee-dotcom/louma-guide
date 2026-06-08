@@ -24,9 +24,22 @@ export async function generateMetadata({
   const { slug } = await params;
   const product = await getProductBySlug(slug);
   if (!product) return {};
+  const local =
+    product.name_local && product.name_local !== product.name
+      ? ` (${product.name_local})`
+      : "";
+  const url = `https://guide.seggfaye.com/produits/${slug}`;
   return {
-    title: product.name,
+    title: `${product.name}${local}`,
     description: product.description,
+    alternates: { canonical: url },
+    openGraph: {
+      title: product.name,
+      description: product.description,
+      url,
+      type: "website",
+      images: product.image_main ? [product.image_main] : undefined,
+    },
   };
 }
 

@@ -26,9 +26,20 @@ export async function generateMetadata({
   const { slug } = await params;
   const dish = await getDishBySlug(slug);
   if (!dish) return {};
+  const wolof =
+    dish.name_wolof && dish.name_wolof !== dish.name ? ` (${dish.name_wolof})` : "";
+  const url = `https://guide.seggfaye.com/plats/${slug}`;
   return {
-    title: `${dish.name} - Ingredients et recette`,
+    title: `${dish.name}${wolof} : recette senegalaise et ingredients`,
     description: dish.description,
+    alternates: { canonical: url },
+    openGraph: {
+      title: `${dish.name} - recette et produits`,
+      description: dish.description,
+      url,
+      type: "article",
+      images: dish.image_url ? [dish.image_url] : undefined,
+    },
   };
 }
 
