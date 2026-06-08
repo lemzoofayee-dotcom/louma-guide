@@ -3,9 +3,9 @@
 --  - Filet de diwnior (beurre clarifie) en finition.
 --  - La couleur rouge vient de la TOMATE DOUBLE CONCENTRE CARAMELISEE.
 
--- 1. Fiche produit Diwtir : retirer la fausse mention thieboudienne
+-- 1. Fiche produit Diwtir : retirer la fausse mention thieboudienne + vrai usage
 update products
-set usage_advice = 'Utilisee dans le soupoukandja et d''autres sauces traditionnelles a l''huile de palme.'
+set usage_advice = 'Entre dans le soupoukandja, le thiou diwtir, le borokhe, le niankatang diola, le fouty et l''etodie. Traditionnellement ajoute a une bouillie de farine de mil pour les jeunes mamans, afin de faciliter la cicatrisation apres l''accouchement.'
 where slug = 'diwtir-pure';
 
 -- 2. Lien plat->produit : remplacer Diwtir par Diwnior dans le thieboudienne
