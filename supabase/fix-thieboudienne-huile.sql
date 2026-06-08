@@ -31,3 +31,13 @@ where slug = 'thieboudienne';
 update dishes
 set steps = '[{"step":1,"title":"Preparer la farce (roff)","text":"Mixer persil, oignons verts, ail et piment. Farcir le poisson avec ce melange."},{"step":2,"title":"Saisir le poisson","text":"Dans une grande marmite, chauffer l''huile vegetale d''arachide. Faire dorer le poisson farci des deux cotes. Reserver."},{"step":3,"title":"Preparer la sauce","text":"Dans la meme huile, faire revenir les oignons emincés. Ajouter le double concentre de tomate et le faire caraméliser (rotir) 90 secondes — c''est lui qui donne au riz sa couleur rouge. Ajouter le guedj, le yeet et le netetou."},{"step":4,"title":"Cuire les legumes","text":"Ajouter l''eau, porter a ebullition. Ajouter les legumes durs en premier (carottes, manioc, chou), puis les plus tendres. Cuire 20 min."},{"step":5,"title":"Cuire le riz","text":"Retirer poisson et legumes. Filtrer le bouillon. Y cuire le riz. Couvrir d''un torchon puis du couvercle pour l''etuvage final."},{"step":6,"title":"Dresser","text":"Disposer le riz en dome, le poisson au centre, les legumes autour. Arroser d''un filet de diwnior (beurre clarifie). Servir avec le kani (piment) a cote."}]'::jsonb
 where slug = 'thieboudienne';
+
+-- 5. Ceebu yapp (thiebou yapp) : Diwtir -> Diwnior.
+--    Les thiebou (yapp, dieune, kethiakh) prennent du diwnior, jamais d'huile de palme.
+update dish_products
+set product_id = (select id from products where slug = 'diwnior-500'),
+    role = 'Touche finale (beurre clarifie)',
+    quantity = 'Un filet en fin de cuisson',
+    expert_note = 'Les thiebou (yapp, dieune, kethiakh) prennent du diwnior (beurre clarifie), jamais d''huile de palme. La couleur rouge vient de la tomate double concentre caramelisee.'
+where dish_id    = (select id from dishes   where slug = 'ceebu-yapp')
+  and product_id = (select id from products where slug = 'diwtir-pure');

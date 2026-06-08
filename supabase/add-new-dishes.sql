@@ -114,7 +114,7 @@ INSERT INTO dish_products (dish_id, product_id, role, quantity, is_essential, di
 INSERT INTO dish_products (dish_id, product_id, role, quantity, is_essential, display_order, expert_note) VALUES
 ((SELECT id FROM dishes WHERE slug='ceebu-yapp'), (SELECT id FROM products WHERE slug='netetu-dom'), 'Exhausteur de gout', '1 cuillere a soupe', true, 1, NULL),
 ((SELECT id FROM dishes WHERE slug='ceebu-yapp'), (SELECT id FROM products WHERE slug='yeet-maggi'), 'Condiment umami', '1 petit morceau', false, 2, 'Optionnel mais recommande pour plus de profondeur.'),
-((SELECT id FROM dishes WHERE slug='ceebu-yapp'), (SELECT id FROM products WHERE slug='diwtir-pure'), 'Huile de cuisson + couleur', '150 ml', false, 3, 'Pour la version rouge du ceebu yapp.'),
+((SELECT id FROM dishes WHERE slug='ceebu-yapp'), (SELECT id FROM products WHERE slug='diwnior-500'), 'Touche finale (beurre clarifie)', 'Un filet en fin de cuisson', false, 3, 'Les thiebou (yapp, dieune, kethiakh) prennent du diwnior (beurre clarifie), jamais d''huile de palme. La couleur rouge vient de la tomate double concentre caramelisee.'),
 ((SELECT id FROM dishes WHERE slug='ceebu-yapp'), (SELECT id FROM products WHERE slug='puree-piment'), 'Accompagnement piquant', 'A volonte', false, 4, NULL);
 
 -- Dibi
