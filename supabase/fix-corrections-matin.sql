@@ -74,3 +74,25 @@ where slug = 'thiere-mboum';
 update products
 set name = 'Thiéré (couscous de mil)'
 where slug = 'thiere-champion';
+
+-- 5) Creer le produit KÉTHIAKH (n'existait pas dans le guide). Graphies : Kéthiakh + Keciax.
+insert into products (slug, name, name_local, category_id, price_unit, badge, description, origin, taste_profile, usage_advice, image_main, image_gallery, in_stock, seggfaye_url)
+select 'kethiakh', 'Kéthiakh', 'Keciax', (select id from categories where slug='mer'),
+       'par 100g', null,
+       'Poisson séché et fermenté, plus sec et plus piquant que le guedj classique. Le kéthiakh (keciax) est obtenu par un séchage prolongé qui concentre les saveurs au maximum.',
+       'Sénégal — Pêche artisanale côtière',
+       'Goût très concentré, plus fort que le guedj. À utiliser en petite quantité.',
+       'Émietter dans les sauces. Excellent dans le bassé salté et le thiébou kéthiakh.',
+       'kethiakh1.webp', array['kethiakh1.webp','kethiakh2.webp','kethiakh3.webp'], true,
+       'https://www.seggfaye.com/produits/keciax.html'
+where not exists (select 1 from products where slug='kethiakh');
+
+-- 6) Lier le Kéthiakh au Bassé Salté (essentiel)
+insert into dish_products (dish_id, product_id, role, quantity, is_essential, display_order)
+select (select id from dishes where slug='basse-sale'),
+       (select id from products where slug='kethiakh'),
+       'Poisson séché (goût de fond)', 'A volonté', true, 4
+where not exists (
+  select 1 from dish_products
+  where dish_id=(select id from dishes where slug='basse-sale')
+    and product_id=(select id from products where slug='kethiakh'));
