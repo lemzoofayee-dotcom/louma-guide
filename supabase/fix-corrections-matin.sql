@@ -96,3 +96,26 @@ where not exists (
   select 1 from dish_products
   where dish_id=(select id from dishes where slug='basse-sale')
     and product_id=(select id from products where slug='kethiakh'));
+
+-- 7) CHERE -> THIÉRÉ (couscous de mil fin au lalo, mangé avec du LAIT FRAIS — pas le dessert)
+update dishes
+set name       = 'Thiéré',
+    name_wolof = 'Cere',
+    subtitle   = 'Couscous de mil fin au lalo, servi au lait frais',
+    description = 'Le thiéré est le couscous de mil au grain fin, préparé avec du lalo (poudre de feuilles de baobab séchées) qui lie les grains. On le mange avec du lait frais — et non du lait caillé, contrairement au thiakry (qui a un grain plus gros).',
+    other_ingredients = array['Thiéré (couscous de mil fin)','Lalo (poudre de feuilles de baobab)','Lait frais'],
+    steps = '[
+      {"step":1,"title":"Préparer le lalo","text":"Délayer le lalo (poudre de feuilles de baobab) dans un peu d''eau jusqu''à obtenir une pâte gluante."},
+      {"step":2,"title":"Lier le couscous","text":"Incorporer le lalo au couscous de mil fin pour lier les grains."},
+      {"step":3,"title":"Cuire à la vapeur","text":"Cuire le thiéré à la vapeur en 2-3 passages, en égrenant entre chaque passage."},
+      {"step":4,"title":"Servir","text":"Servir le thiéré avec du lait frais."}
+    ]'::jsonb
+where slug = 'chere';
+
+-- Produits du Thiéré : garder uniquement le couscous "Thiéré" (retirer miel + ancien couscous Thiakry)
+delete from dish_products where dish_id = (select id from dishes where slug = 'chere');
+insert into dish_products (dish_id, product_id, role, quantity, is_essential, display_order)
+select (select id from dishes where slug='chere'),
+       (select id from products where slug='thiere-champion'),
+       'Couscous de mil (grain fin)', '500 g', true, 1
+where exists (select 1 from products where slug='thiere-champion');
