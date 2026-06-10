@@ -12,18 +12,26 @@ export default function Footer() {
             Produits
           </Link>
           <a
-            href="https://www.seggfaye.com"
+            href="https://seggfaye.com"
             target="_blank"
             rel="noopener noreferrer"
             className="text-[0.75rem] font-bold tracking-[0.1em] uppercase text-muted hover:text-cream transition-colors"
           >
             Boutique
           </a>
+          <a
+            href="https://www.tiktok.com/@seggfaye"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[0.75rem] font-bold tracking-[0.1em] uppercase text-muted hover:text-cream transition-colors"
+          >
+            TikTok
+          </a>
         </div>
         <p className="text-[0.72rem] text-muted/60">
           Propulse par{" "}
           <a
-            href="https://www.seggfaye.com"
+            href="https://seggfaye.com"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gold hover:text-[#e0c070] transition-colors"

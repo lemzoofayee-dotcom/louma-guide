@@ -102,7 +102,7 @@ export default function Navbar() {
             </svg>
           </Link>
           <a
-            href="https://www.seggfaye.com"
+            href="https://seggfaye.com"
             target="_blank"
             rel="noopener noreferrer"
             className="w-[38px] h-[38px] rounded-full bg-[rgba(201,168,76,0.07)] border border-border flex items-center justify-center text-gold hover:bg-[rgba(201,168,76,0.15)] hover:border-border-highlight transition-all"
@@ -133,7 +133,7 @@ export default function Navbar() {
             </svg>
           </Link>
           <a
-            href="https://www.seggfaye.com"
+            href="https://seggfaye.com"
             target="_blank"
             rel="noopener noreferrer"
             className="w-[38px] h-[38px] rounded-full bg-[rgba(201,168,76,0.07)] border border-border flex items-center justify-center text-gold"

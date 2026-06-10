@@ -26,7 +26,7 @@ export default async function BioPage() {
         {/* CTAs principaux */}
         <div className="w-full flex flex-col gap-3 mb-9">
           <a
-            href="https://www.seggfaye.com"
+            href="https://seggfaye.com"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-center gap-2 w-full rounded-[var(--radius-md)] bg-gold text-bg font-bold text-[0.95rem] px-4 py-4 hover:bg-[#e0c070] transition-colors"

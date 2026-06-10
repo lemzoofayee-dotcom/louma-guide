@@ -10,7 +10,7 @@ export default function ProductCard({ product }: { product: Product }) {
     >
       <div className="relative aspect-square bg-surface overflow-hidden">
         <Image
-          src={`https://www.seggfaye.com/${product.image_main}`}
+          src={`https://seggfaye.com/${product.image_main}`}
           alt={product.name}
           fill
           className="object-cover transition-transform duration-500 group-hover:scale-105"

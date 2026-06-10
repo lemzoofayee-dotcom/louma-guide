@@ -78,7 +78,7 @@ export default async function ProductPage({
             <div>
               <div className="relative aspect-square rounded-[var(--radius-lg)] overflow-hidden bg-[linear-gradient(145deg,rgba(255,255,255,.07),rgba(255,255,255,.02))] border border-border">
                 <Image
-                  src={`https://www.seggfaye.com/${gallery[0]}`}
+                  src={`https://seggfaye.com/${gallery[0]}`}
                   alt={product.name}
                   fill
                   className="object-cover"
@@ -99,7 +99,7 @@ export default async function ProductPage({
                       className="shrink-0 w-16 h-16 rounded-[var(--radius-md)] overflow-hidden bg-[rgba(255,255,255,.05)] border border-border hover:border-border-highlight transition-colors cursor-pointer"
                     >
                       <Image
-                        src={`https://www.seggfaye.com/${img}`}
+                        src={`https://seggfaye.com/${img}`}
                         alt={`${product.name} ${i + 1}`}
                         width={64}
                         height={64}

@@ -73,10 +73,10 @@ export default async function DishPage({
     image: dish.image_url
       ? dish.image_url.startsWith("/")
         ? `https://guide.seggfaye.com${dish.image_url}`
-        : `https://www.seggfaye.com/${dish.image_url}`
+        : `https://seggfaye.com/${dish.image_url}`
       : undefined,
     author: { "@type": "Person", name: "Le Guedjologue" },
-    publisher: { "@type": "Organization", name: "Louma by Seggfaye", url: "https://www.seggfaye.com" },
+    publisher: { "@type": "Organization", name: "Louma by Seggfaye", url: "https://seggfaye.com" },
     prepTime: dish.prep_time_minutes ? `PT${dish.prep_time_minutes}M` : undefined,
     cookTime: dish.cook_time_minutes ? `PT${dish.cook_time_minutes}M` : undefined,
     totalTime: dish.prep_time_minutes && dish.cook_time_minutes ? `PT${dish.prep_time_minutes + dish.cook_time_minutes}M` : undefined,
@@ -114,7 +114,7 @@ export default async function DishPage({
           {dish.image_url ? (
             <div className="relative w-40 h-40 md:w-52 md:h-52 mx-auto mb-4 rounded-full overflow-hidden border-2 border-border">
               <Image
-                src={dish.image_url.startsWith('/') ? dish.image_url : `https://www.seggfaye.com/${dish.image_url}`}
+                src={dish.image_url.startsWith('/') ? dish.image_url : `https://seggfaye.com/${dish.image_url}`}
                 alt={dish.name}
                 fill
                 className="object-cover"
@@ -259,7 +259,7 @@ export default async function DishPage({
           {dishProducts.length > 0 && (
             <section className="mb-10">
               <a
-                href="https://www.seggfaye.com/#produits"
+                href="https://seggfaye.com/#produits"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block rounded-[var(--radius-lg)] border border-[rgba(201,168,76,0.3)] bg-[linear-gradient(135deg,rgba(201,168,76,0.08),rgba(201,168,76,0.02))] p-5 md:p-6 text-center transition-all hover:border-[rgba(201,168,76,0.5)] hover:shadow-[0_8px_32px_rgba(201,168,76,0.1)]"
@@ -336,7 +336,7 @@ function ProductIngredient({
     >
       <Link href={`/produits/${p.slug}`} className="shrink-0">
         <Image
-          src={`https://www.seggfaye.com/${p.image_main}`}
+          src={`https://seggfaye.com/${p.image_main}`}
           alt={p.name}
           width={56}
           height={56}
