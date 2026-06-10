@@ -34,6 +34,14 @@ export default async function BioPage() {
             🛒 Commander sur la boutique
           </a>
           <a
+            href="https://wa.me/33652650395"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center gap-2 w-full rounded-[var(--radius-md)] border border-[#25D366]/50 text-cream font-semibold text-[0.9rem] px-4 py-3.5 hover:bg-surface transition-colors"
+          >
+            💬 WhatsApp <span className="text-[#25D366] font-bold">+33 6 52 65 03 95</span>
+          </a>
+          <a
             href="https://www.tiktok.com/@seggfaye"
             target="_blank"
             rel="noopener noreferrer"
