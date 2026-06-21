@@ -1,11 +1,12 @@
 name: Supabase Keep-Alive
 
 # Empêche la mise en pause auto du projet Supabase (tier gratuit = pause après 7 jours d'inactivité).
-# Ping léger de la base 2x/semaine (lundi + jeudi) → l'écart ne dépasse jamais 7 jours.
+# Ping léger de la base TOUS LES JOURS → grosse marge même si GitHub décale/saute un run.
+# (Avant : 2x/sem lundi+jeudi → marge trop courte, a laissé pauser le 21/06/2026.)
 
 on:
   schedule:
-    - cron: "0 6 * * 1,4" # lundi et jeudi, 06:00 UTC
+    - cron: "0 6 * * *" # tous les jours, 06:00 UTC (~8h Paris)
   workflow_dispatch: {} # permet de lancer manuellement depuis l'onglet Actions
 
 jobs:
