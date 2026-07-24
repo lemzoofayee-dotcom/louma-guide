@@ -65,18 +65,28 @@ export default async function DishPage({
     ...(dish.other_ingredients || []),
   ];
 
+  // Image absolue pour le schema Recipe : Google EXIGE une image valide, sinon la
+  // recette n'est pas eligible aux rich snippets. On gere URL complete / chemin du
+  // guide / chemin seggfaye.com, avec un fallback si le plat n'a pas encore de photo.
+  const recipeImage = dish.image_url
+    ? dish.image_url.startsWith("http")
+      ? dish.image_url
+      : dish.image_url.startsWith("/")
+        ? `https://guide.seggfaye.com${dish.image_url}`
+        : `https://seggfaye.com/${dish.image_url}`
+    : "https://guide.seggfaye.com/logo.webp";
+
   const recipeJsonLd = {
     "@context": "https://schema.org",
     "@type": "Recipe",
     name: dish.name,
     description: dish.description,
-    image: dish.image_url
-      ? dish.image_url.startsWith("/")
-        ? `https://guide.seggfaye.com${dish.image_url}`
-        : `https://seggfaye.com/${dish.image_url}`
-      : undefined,
+    image: recipeImage,
     author: { "@type": "Person", name: "Le Guedjologue" },
     publisher: { "@type": "Organization", name: "Louma by Seggfaye", url: "https://seggfaye.com" },
+    keywords: [dish.name, dish.name_wolof, dish.category, "cuisine senegalaise"]
+      .filter(Boolean)
+      .join(", "),
     prepTime: dish.prep_time_minutes ? `PT${dish.prep_time_minutes}M` : undefined,
     cookTime: dish.cook_time_minutes ? `PT${dish.cook_time_minutes}M` : undefined,
     totalTime: dish.prep_time_minutes && dish.cook_time_minutes ? `PT${dish.prep_time_minutes + dish.cook_time_minutes}M` : undefined,
