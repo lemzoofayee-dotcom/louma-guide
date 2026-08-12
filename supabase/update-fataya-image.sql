@@ -3,8 +3,8 @@
 -- À exécuter dans Supabase > SQL Editor (doit dire "1 row").
 UPDATE dishes SET image_url = '/dishes/fataya.jpg' WHERE slug = 'fataya';
 
--- Graphie wolof alternative (à confirmer par Lamine, ex. 'Fatiya') pour ratisser large :
--- UPDATE dishes SET name_wolof = 'Fatiya' WHERE slug = 'fataya';
+-- ⚠️ PAS de graphie alternative pour fataya : "Fatiya" = Al-Fâtiha (verset du Coran),
+--    aucun rapport avec le beignet. Ne jamais mettre ça en name_wolof.
 
 -- Vérif :
--- SELECT slug, name, name_wolof, image_url FROM dishes WHERE slug = 'fataya';
+-- SELECT slug, name, image_url FROM dishes WHERE slug = 'fataya';
