@@ -41,3 +41,7 @@ INSERT INTO dishes (slug, name, name_wolof, subtitle, emoji, description, prep_t
   '[{"step":1,"title":"Preparer les boulettes","text":"Hacher la chair de poisson avec ail et persil, lier avec un oeuf et un peu de farine, puis former de petites boulettes."},{"step":2,"title":"Monter la sauce tomate","text":"Faire revenir l''oignon et l''ail, ajouter le concentre et la tomate fraiche. Mouiller et laisser reduire avec un trait de vinaigre et un peu de bissap blanc."},{"step":3,"title":"Epaissir a la farine","text":"Delayer la farine dans un peu d''eau froide et l''incorporer a la sauce en remuant pour une texture lisse."},{"step":4,"title":"Ajouter legumes et boulettes","text":"Ajouter carottes et pomme de terre, puis plonger les boulettes de poisson. Laisser cuire doucement 15 min."},{"step":5,"title":"Servir","text":"Rectifier l''assaisonnement, ajouter un filet de jus de citron. Servir avec du riz blanc."}]',
   ARRAY['Le domoda n''a PAS de pate d''arachide (ca, c''est le mafe) : on epaissit a la farine delayee dans l''eau.','Des boulettes de poisson bien liees a l''oeuf tiennent mieux a la cuisson.','Le vinaigre, le bissap blanc et le jus de citron donnent sa signature acidulee.'],
   NULL, false);
+
+-- 4) Correctif : image_url oublie dans l'INSERT des 2 variantes domoda
+UPDATE dishes SET image_url = '/dishes/domoda-poisson.jpg'  WHERE slug = 'domoda-poisson';
+UPDATE dishes SET image_url = '/dishes/domoda-boulette.jpg' WHERE slug = 'domoda-boulette';
