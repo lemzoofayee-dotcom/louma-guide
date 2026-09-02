@@ -82,6 +82,7 @@ export default async function DishPage({
     name: dish.name,
     description: dish.description,
     image: recipeImage,
+    datePublished: dish.created_at,
     author: { "@type": "Person", name: "Le Guedjologue" },
     publisher: { "@type": "Organization", name: "Louma by Seggfaye", url: "https://seggfaye.com" },
     keywords: [dish.name, dish.name_wolof, dish.category, "cuisine senegalaise"]
