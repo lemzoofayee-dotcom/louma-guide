@@ -5,6 +5,7 @@ import SectionLabel from "@/components/SectionLabel";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { DISH_VIDEOS } from "@/lib/dishVideos";
 import {
   getDishBySlug,
   getDishProducts,
@@ -76,6 +77,8 @@ export default async function DishPage({
         : `https://seggfaye.com/${dish.image_url}`
     : "https://guide.seggfaye.com/logo.webp";
 
+  const dishVideo = DISH_VIDEOS[dish.slug];
+
   const recipeJsonLd = {
     "@context": "https://schema.org",
     "@type": "Recipe",
@@ -83,6 +86,17 @@ export default async function DishPage({
     description: dish.description,
     image: recipeImage,
     datePublished: dish.created_at,
+    ...(dishVideo && {
+      video: {
+        "@type": "VideoObject",
+        name: dishVideo.name,
+        description: dishVideo.name,
+        thumbnailUrl: `https://i.ytimg.com/vi/${dishVideo.id}/hqdefault.jpg`,
+        uploadDate: dishVideo.uploadDate,
+        embedUrl: `https://www.youtube.com/embed/${dishVideo.id}`,
+        contentUrl: `https://www.youtube.com/watch?v=${dishVideo.id}`,
+      },
+    }),
     author: { "@type": "Person", name: "Le Guedjologue" },
     publisher: { "@type": "Organization", name: "Louma by Seggfaye", url: "https://seggfaye.com" },
     keywords: [dish.name, dish.name_wolof, dish.category, "cuisine senegalaise"]
