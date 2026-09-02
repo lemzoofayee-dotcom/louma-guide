@@ -45,6 +45,7 @@ export interface Dish {
   tips: string[];
   blog_url: string | null;
   is_featured: boolean;
+  created_at: string;
 }
 
 export interface DishStep {
