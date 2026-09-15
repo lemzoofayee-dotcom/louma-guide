@@ -4,9 +4,13 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Liens — Louma by Seggfaye",
   description:
-    "Tous les liens Louma by Seggfaye : guide des plats senegalais, boutique (guedj, netetou, yeet) et commande WhatsApp.",
+    "Tous les liens Louma by Seggfaye : les noms des poissons en wolof, commande WhatsApp, poissons frais, boutique (guedj, nététou, yeet) et guide des plats sénégalais.",
   alternates: { canonical: "https://guide.seggfaye.com/bio" },
 };
+
+// Étiquette « venu de la bio » : les visites apparaissent dans Google Analytics de seggfaye.com
+const utm = (campaign: string) =>
+  `utm_source=bio&utm_medium=social&utm_campaign=${campaign}`;
 
 export default function BioPage() {
   return (
@@ -27,33 +31,53 @@ export default function BioPage() {
           Louma <em className="text-gold italic font-[family-name:var(--font-heading)]">by Seggfaye</em>
         </h1>
         <p className="text-muted text-[0.85rem] text-center mt-2 mb-9">
-          Le Guedjologue — produits & recettes du Senegal 🇸🇳
+          Le Guedjologue — produits & recettes du Sénégal 🇸🇳
         </p>
 
         {/* CTAs */}
         <div className="w-full flex flex-col gap-3">
-          <Link
-            href="/"
-            className="flex items-center justify-center gap-2 w-full rounded-[var(--radius-md)] bg-gold text-bg font-bold text-[0.95rem] px-4 py-4 hover:bg-[#e0c070] transition-colors"
-          >
-            📖 Le guide des plats
-          </Link>
           <a
-            href="https://seggfaye.com"
+            href={`https://seggfaye.com/atlas-poissons-wolof.html?${utm("atlas")}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2 w-full rounded-[var(--radius-md)] border border-border-highlight text-cream font-semibold text-[0.95rem] px-4 py-4 hover:bg-surface transition-colors"
+            className="relative flex items-center justify-center gap-2 w-full rounded-[var(--radius-md)] bg-gold text-bg font-bold text-[0.95rem] px-4 py-4 hover:bg-[#e0c070] transition-colors"
           >
-            🛒 La boutique — seggfaye.com
+            🐟 Les noms des poissons en wolof
+            <span className="absolute -top-2 right-3 rounded-full bg-cream text-bg text-[0.6rem] font-extrabold uppercase tracking-wider px-2 py-0.5">
+              Nouveau
+            </span>
           </a>
           <a
             href="https://wa.me/33652650395"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2 w-full rounded-[var(--radius-md)] border border-[#25D366]/50 text-cream font-semibold text-[0.95rem] px-4 py-4 hover:bg-surface transition-colors"
+            className="flex flex-col items-center justify-center w-full rounded-[var(--radius-md)] border border-[#25D366]/50 text-cream font-semibold text-[0.95rem] px-4 py-3 hover:bg-surface transition-colors"
           >
-            💬 WhatsApp <span className="text-[#25D366] font-bold">+33 6 52 65 03 95</span>
+            <span>💬 Commander sur WhatsApp</span>
+            <span className="text-[#25D366] font-bold text-[0.85rem] whitespace-nowrap">+33 6 52 65 03 95</span>
           </a>
+          <a
+            href={`https://seggfaye.com/poissons-prix.html?${utm("poissons-frais")}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center gap-2 w-full rounded-[var(--radius-md)] border border-border-highlight text-cream font-semibold text-[0.95rem] px-4 py-4 hover:bg-surface transition-colors"
+          >
+            🐠 Poissons frais : les prix
+          </a>
+          <a
+            href={`https://seggfaye.com/?${utm("boutique")}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center gap-2 w-full rounded-[var(--radius-md)] border border-border-highlight text-cream font-semibold text-[0.95rem] px-4 py-4 hover:bg-surface transition-colors"
+          >
+            🛒 La boutique — guedj, yet, nététou
+          </a>
+          <Link
+            href="/"
+            className="flex items-center justify-center gap-2 w-full rounded-[var(--radius-md)] border border-border-highlight text-cream font-semibold text-[0.95rem] px-4 py-4 hover:bg-surface transition-colors"
+          >
+            📖 Le guide des plats
+          </Link>
         </div>
 
         <p className="text-[0.7rem] text-muted/60 mt-10 text-center">
