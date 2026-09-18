@@ -41,7 +41,7 @@ const ALIASES: Record<string, string[]> = {
   "chere": ["céré", "cere", "thiakry lait"],
   "guedj": ["guej", "gejj", "guedji", "poisson seche", "poisson fermente"],
   "netetou": ["netetu", "netetou", "soumbala", "dawadawa", "iru woro", "iru", "soumbara"],
-  "yeet": ["yet", "yete", "mollusque fermente"],
+  "yeet-maggi": ["yet", "yett", "yette", "yete", "cymbium", "mollusque fermente"],
   "crevettes": ["crevettes sechees", "cipakh", "cipax"],
   "kethiakh": ["kethiakh", "kethiak", "ketiak", "poisson seche sale"],
   "diwtir": ["diw tir", "huile rouge", "huile palme"],
