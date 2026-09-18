@@ -33,6 +33,8 @@ export const metadata: Metadata = {
     "guedj",
     "netetou",
     "yeet",
+    "yett",
+    "yette",
     "crevettes sechees",
     "cuisine senegalaise",
     "produits africains france",
