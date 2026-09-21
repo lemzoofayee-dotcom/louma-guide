@@ -16,6 +16,22 @@ export async function generateStaticParams() {
   return slugs.map((slug) => ({ slug }));
 }
 
+
+/**
+ * La fiche qui VEND est celle de la boutique : on dit a Google que la page
+ * de reference est seggfaye.com, sinon les deux se concurrencent sur le meme
+ * mot (constat GSC 21/09 : kethiakh 8,3 contre 9,4 ; diwtir 6,5 contre 7,2).
+ * Slugs identiques sauf ces deux-la.
+ */
+const SLUGS_BOUTIQUE: Record<string, string> = {
+  kethiakh: "keciax",
+  "yaye-boye": "yaboye",
+};
+
+function urlBoutique(slug: string): string {
+  return `https://seggfaye.com/produits/${SLUGS_BOUTIQUE[slug] ?? slug}.html`;
+}
+
 export async function generateMetadata({
   params,
 }: {
@@ -32,7 +48,7 @@ export async function generateMetadata({
   return {
     title: `${product.name}${local}`,
     description: product.description,
-    alternates: { canonical: url },
+    alternates: { canonical: urlBoutique(slug) },
     openGraph: {
       title: product.name,
       description: product.description,
