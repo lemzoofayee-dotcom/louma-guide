@@ -19,6 +19,14 @@ export async function generateStaticParams() {
   return slugs.map((slug) => ({ slug }));
 }
 
+
+/** Titre Google : nom du plat + « c'est quoi ? » + sous-titre s'il tient dans ~54 caracteres (le site ajoute « | Louma Guide »). */
+function seoTitle(nom: string, sousTitre?: string | null): string {
+  const base = `${nom} : c'est quoi ?`;
+  const avecSousTitre = sousTitre ? `${base} ${sousTitre}` : base;
+  return avecSousTitre.length <= 54 ? avecSousTitre : `${base} Recette et ingredients`;
+}
+
 export async function generateMetadata({
   params,
 }: {
@@ -31,7 +39,8 @@ export async function generateMetadata({
     dish.name_wolof && dish.name_wolof !== dish.name ? ` (${dish.name_wolof})` : "";
   const url = `https://guide.seggfaye.com/plats/${slug}`;
   return {
-    title: `${dish.name}${wolof} : recette senegalaise et ingredients`,
+    // « c'est quoi ? » repond a la requete reelle : les gens tapent le nom du plat seul
+    title: seoTitle(`${dish.name}${wolof}`, dish.subtitle),
     description: dish.description,
     alternates: { canonical: url },
     openGraph: {
