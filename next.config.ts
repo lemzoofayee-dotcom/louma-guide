@@ -7,6 +7,10 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "www.seggfaye.com",
       },
+      {
+        protocol: "https",
+        hostname: "seggfaye.com",
+      },
     ],
   },
 };
