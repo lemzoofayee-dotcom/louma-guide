@@ -30,7 +30,8 @@ Acheter les produits : boutique https://seggfaye.com (livraison France et Europe
 - [Mafe (Maafe)](https://guide.seggfaye.com/plats/mafe): Le mafe est une sauce onctueuse a base de pate d'arachide, servie avec du riz.
 - [Mbakhalou Saloum (Mbaxal bu Saloum)](https://guide.seggfaye.com/plats/mbakhalou-saloum): Le mbakhalou saloum est un plat signature des Iles du Saloum : du riz cuit dans une sauce a base de poudre d'arachide, parfume au netetou et au guedj.
 - [Ndambe](https://guide.seggfaye.com/plats/ndambe): Le ndambe est un ragout de haricots niebe mitonnes dans une sauce tomate epicee.
-- [Ndiambane dakkar](https://guide.seggfaye.com/plats/ndiambane-dakkar): plat sénégalais au tamarin (dakkar) — recette détaillée de Lamine : https://seggfaye.com/blog/ndiambane-dakkar.html
+- [Diambane Dakkar (Ndiambane)](https://guide.seggfaye.com/plats/diambane-dakkar): mélange salé au tamarin (dakkar) et aux fruits de mer séchés des Îles du Saloum (kéthiakh, pagne, crevettes séchées, yokhos), préparé à froid. Recette : https://seggfaye.com/blog/ndiambane-dakkar.html
+- [Ndiambane Dakkar (Diambane)](https://guide.seggfaye.com/plats/ndiambane-dakkar): même recette, autre graphie wolof — « ndiambane » veut dire « mélange ».
 - [Ngalakh](https://guide.seggfaye.com/plats/ngalakh): Le ngalakh est un dessert senegalais onctueux a base de poudre de baobab (bouye) et de pate d'arachide, parfume a la muscade.
 - [Niankatang Diola (Niankatang)](https://guide.seggfaye.com/plats/niankatang-diola): Le niankatang diola est un plat casamancais de riz blanc melange a des fruits de mer seches (pagne, crevettes, guedj), releve d'un filet d'huile de palme rouge.
 - [Pastels](https://guide.seggfaye.com/plats/pastels): Les pastels sont des beignets farcis au poisson (ou a la viande) et frits.
