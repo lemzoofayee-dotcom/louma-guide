@@ -55,3 +55,8 @@ INSERT INTO dish_products (dish_id, product_id, role, quantity, is_essential, di
 SELECT d.slug, p.slug AS produit, dp.is_essential FROM dish_products dp
 JOIN dishes d ON d.id = dp.dish_id JOIN products p ON p.id = dp.product_id
 WHERE d.slug IN ('sauce-netetou','thiere-toumboulan') ORDER BY d.slug, dp.display_order;
+
+-- ===== SAUCE THIEBOUDIENNE : RETIREE =====
+-- Lamine (12/11) : « sauce thieboudienne » n'existe pas ; la sauce qui accompagne le thieb rouge = la sauce diaga
+-- (fiche thiebou-diaga, dictee du 14/10). Redirection 301 dans next.config.ts. Cascade sur dish_products.
+DELETE FROM dishes WHERE slug = 'sauce-thieboudienne';

@@ -36,8 +36,7 @@ Acheter les produits : boutique https://seggfaye.com (livraison France et Europe
 - [Niankatang Diola (Niankatang)](https://guide.seggfaye.com/plats/niankatang-diola): Le niankatang diola est un plat casamancais de riz blanc melange a des fruits de mer seches (pagne, crevettes, guedj), releve d'un filet d'huile de palme rouge.
 - [Pastels](https://guide.seggfaye.com/plats/pastels): Les pastels sont des beignets farcis au poisson (ou a la viande) et frits.
 - [Sauce Fruits de Mer](https://guide.seggfaye.com/plats/sauce-fruits-de-mer): Une sauce riche aux fruits de mer seches (crevettes, pagne, yokhos), mijotee avec oignons et tomate.
-- [Sauce Netetou](https://guide.seggfaye.com/plats/sauce-netetou): La sauce netetou est une sauce brune profonde ou le netetou (graines de nere fermentees) domine.
-- [Sauce Thieboudienne](https://guide.seggfaye.com/plats/sauce-thieboudienne): La sauce du thieboudienne est une sauce tomate profonde, montee avec du concentre de tomate roti, des oignons, et des produits seches (guedj, yeet, netetou).
+- [Sauce Netetou](https://guide.seggfaye.com/plats/sauce-netetou): La sauce netetou : des oignons frits a l'huile, du concentre de tomate et du netetou. Puissamment umami, elle accompagne le riz.
 - [Sombi](https://guide.seggfaye.com/plats/sombi): Le sombi est un riz au lait senegalais, parfume a la vanille et a la fleur d'oranger.
 - [Soupoukandja (Suppu kandia)](https://guide.seggfaye.com/plats/soupoukandja): Le soupoukandja (soupou kandia) est une sauce a base de gombo (okra) onctueuse et parfumee.
 - [Spaghetti aux Fruits de Mer](https://guide.seggfaye.com/plats/spaghetti-fruits-de-mer): Une rencontre entre l'Italie et le Saloum : des spaghetti nappes d'une sauce aux fruits de mer seches (pagne, crevettes) et tomate.
@@ -45,7 +44,7 @@ Acheter les produits : boutique https://seggfaye.com (livraison France et Europe
 - [Thiebou Diaga (Diaga)](https://guide.seggfaye.com/plats/thiebou-diaga): Le thiebou diaga est la version premium du thieboudienne : un riz au poisson nappe d'une sauce tomate rouge et epaisse aux oignons, sublime par de petites boulettes de poisson.
 - [Thieboudienne (Ceebu jen)](https://guide.seggfaye.com/plats/thieboudienne): Le thieboudienne est LE plat national senegalais : du riz cuit dans une sauce tomate riche avec du poisson frais, des legumes et des condiments seches (guedj, yeet, netetou) qui lui donnent son…
 - [Thiéré Mboum (Thiere mboum)](https://guide.seggfaye.com/plats/thiere-mboum): Le thiere mboum est un couscous de mil servi avec une sauce de legumes riche.
-- [Thiere Toumboulane (Cere)](https://guide.seggfaye.com/plats/thiere-toumboulan): Le thiere toumboulane est un couscous de mil senegalais servi avec une sauce ou le guedj toumboulane (cartilage seche de raie ou requin) apporte son effet gelatine : une sauce epaisse, signe d'un…
+- [Thiere Toumboulane (Cere)](https://guide.seggfaye.com/plats/thiere-toumboulan): Le thiere toumboulane, c'est la version brute du toumboulane : une sauce toute simple a l'oignon et a la tomate fraiche, le guedj toumboulane qui mijote dedans, et le couscous de mil.
 - [Thiou](https://guide.seggfaye.com/plats/thiou): Le thiou est une sauce de legumes au poisson, plus legere et plus rapide que le thieboudienne.
 - [Yassa Poisson (Yassa jen)](https://guide.seggfaye.com/plats/yassa-poisson): Le yassa poisson est un grand classique senegalais : du poisson marine puis grille, servi avec une sauce fondante d'oignons confits au citron et a la moutarde.
 - [Yassa Poulet (Yassa ginaar)](https://guide.seggfaye.com/plats/yassa-poulet): Le yassa est un plat emblematique de la Casamance : poulet marine au citron puis grille, servi dans une sauce d'oignons caramelises.
